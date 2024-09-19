@@ -1,0 +1,263 @@
+@import "../sass/variables";
+body {
+    font-family: cursive;
+}
+/* title component */
+.main-title > span {
+    background-color: #e7f1fd;
+}
+/* title component */
+
+section {
+    overflow-x: hidden;
+}
+
+/* customize scrollbar */
+::-webkit-scrollbar {
+    background-color: #fff;
+}
+::-webkit-scrollbar-track{
+    box-shadow: 0 0 5px $blue inset;
+}
+::-webkit-scrollbar-thumb {
+    background-color: $blue;
+    border-radius: 8px;
+}
+/* customize scrollbar */
+
+/* scroll to top button scrollbar */
+.scroll-top-btn {
+    width: 30px;
+    height: 30px;
+    right: 10px;
+    bottom: 10px;
+    cursor: pointer;
+    background-color: #287dec;
+    transition: 0.8s;
+    opacity: 0;
+    &:hover {
+        background-color: $blue;
+    }
+}
+/* scroll to top button scrollbar */
+
+
+/* start navbar */
+.navbar {
+    height: 60px;
+    .navbar-nav .nav-link{
+        position: relative;
+        padding: 15px 10px;
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            transition: .3s;
+            background-color: $blue;
+        }
+        &.active,
+        &:hover {
+            color: $blue;
+            &::before {
+                width: 100%;
+            }
+        }
+    }
+    .navbar-toggler:focus{
+        box-shadow: none;
+    }
+}
+/* End navbar */
+
+/* start header */
+.landing {
+    height: calc(100vh - 60px);
+    background-image: url(../imgs/hero-bg.jpg);
+    background-size: cover;
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: transparentize(#fff, .3);
+    }
+}
+/* End header */
+
+/* start about section */
+.about {
+    background-color: $section-background;
+    li .icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+/*End about section */
+
+/* start progress section */
+.progress { 
+    transition: 0.5s ;
+}
+.progress-bar {
+    transition: 0.5s;
+}
+/* End progress section */
+
+/*start counter section */
+.counter-sec {
+    .box{
+        background-color: $section-background;
+    }
+    .box .icon {
+        width: 60px;
+        height:60px;
+    }
+}
+/*End counter section */
+
+/*start testimonials section */
+.testimonials-sec {
+    background-color: $section-background;
+}
+/*End testimonials section */
+
+/*start services section */
+.services {
+    .box{
+        transition: .5s;
+        background-color: $section-background;
+        z-index: 1;
+        svg {
+            color: $blue;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 0;
+            background-color: $blue;
+            z-index: -1;
+            bottom: 0;
+            left: 0;
+            transition: .5s;
+        }
+        &:hover{
+            &::before {
+                height: 100%;
+            }
+            &>* {
+                color: #fff;
+            }
+        }
+    }
+}
+/*End services section */
+
+/*start slider section */
+.slider-sec {
+    background-image: url(../imgs/testimonials-bg.jpg);
+    background-size: cover;
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: transparentize(#000000, 0.3);
+    }
+    #carouselExampleCaptions{
+        height: 350px;
+    }
+    .carousel-item img {
+        height: 200px;
+        width: 200px;
+    }
+}
+/*End slider section */
+
+/*start portfolio section */
+.list-buttons {
+    li{
+        transition: .5s;
+        cursor: pointer;
+        &:hover {
+            background-color: $blue;
+            color: #fff;
+        }
+    }
+}
+.filterd-imgs {
+    >a {
+        height: 350px;
+        transition: .5s;
+        &.hide {
+            display: none;
+        }
+        &.show {
+            display: block;
+            animation: show .5s ease-in-out;
+        }
+}
+        img{
+            object-fit: contain;
+        }
+    }
+
+/*End portfolio section */
+
+/*start contact us section */
+.contact-sec .box .icon{
+    height: 60px;
+    width: 60px;
+    border: 1px dashed $blue;
+    
+}
+/*End contact us section */
+
+/*start footer  */
+footer {
+    background-color: $section-background;
+    .footer-list li {
+        padding-left: 16px;
+        position: relative;
+        &::before{
+            content: "";
+            position: absolute;
+            border: 5px solid;
+            border-color: transparent transparent transparent $blue;
+            left: 0;
+            top: 50%;
+            transform: translatey(-50%);
+        }
+    }
+    .links {
+        cursor: pointer;
+    }
+}
+/*End footer  */
+
+
+/* start modal */
+#exampleModal {
+    object {
+        height: 80vh;
+    }
+    &.fade .modal-dialog {
+        transition: transform 0.5s ease-out;
+        transform: scale(0); 
+    }
+    &.show .modal-dialog {
+        transform: none;
+    }
+}
+/* End modal */
+@keyframes show {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+
